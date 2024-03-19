@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load your CSV file into a DataFrame
-df = pd.read_csv("/Users/ebrahimgdr/Documents/GitHub/NRC_Imaging/Ababo/Specimen_RawData_1.csv")
+df = pd.read_csv("Ababo/Specimen_RawData_1.csv")
 
 # Define the value of i
 i = 300  # Set your desired value of i
