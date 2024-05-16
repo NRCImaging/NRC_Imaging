@@ -26,7 +26,11 @@ for i in range(1, 6001, 10):
 
 # Create a video from the composite images
 image_folder = sum_path
-video_name = 'output_video.avi'
+output_directory = 'W:\\data\\video_output'
+if not os.path.exists(output_directory):
+    os.makedirs(output_directory)
+
+video_name = os.path.join(output_directory, 'output_video.avi')
 
 # Get a sorted list of all composite images
 images = sorted([img for img in os.listdir(image_folder) if img.endswith(".jpg")])
@@ -37,7 +41,8 @@ height, width, layers = frame.shape
 
 # Define the codec and create VideoWriter object
 fourcc = cv2.VideoWriter_fourcc(*'XVID') # You can try other codecs like 'MJPG' or 'MP4V'
-video = cv2.VideoWriter(video_name, fourcc, 10, (width, height))
+fps = 15  # Set the desired frame rate (frames per second)
+video = cv2.VideoWriter(video_name, fourcc, fps, (width, height))
 
 # Write each image to the video
 for image in images:
